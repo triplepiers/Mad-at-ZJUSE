@@ -1,0 +1,102 @@
+\documentclass[10pt,conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{biblatex}
+
+\addbibresource{refs.bib}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+% Title
+\title{Three Interesting Papers Related to Software Requirements\\
+{\footnotesize \textsuperscript{} HW1 Task3 of Software Requirements Engineering}
+}
+
+% Author
+\author{\IEEEauthorblockN{1\textsuperscript{st} Yunfeng Shen}
+\IEEEauthorblockA{\textit{College of Computer Science and Technology} \\
+\textit{Zhejiang University}\\
+Hangzhou, China \\
+3200104392@zju.edu.cn}}
+\maketitle
+
+% Pre
+The Google scholar cite of all three articles is at the end of the whole file.
+
+% Article One
+\section{Deep Learning Based Program Generation From Requirements Text: Are We There Yet?\cite{liu2020deep}}
+
+\subsection{Summary}
+With the development of deep learning and Natural Language Processing  (NLP) technology, to generate source code from natural language by applying deep learning-based approaches has been claimed to have high accuracy. Whereas, the author doubted the result for it is evaluated on datasets which are rather small,  monotonous and significantly different from real-life software requirements.
+
+Thus, the author gathered submissions from two programming contest platforms, i.e., Codeforces and HackerEarth. By removing duplications, filtering up-to-date submissions and removing low-quality ones, they successfully built an large scale dataset with  high quality. Besides, to facilitate research on code generation, the authors also develop an assisting tool which area able to automatically computes the list of quality metrics for reference programs.
+
+They chose Seq2Seq, SNM, Tree2Tree, TRANX and Coasr-to-Fine as approaches to be evaluated. After training, testing, and evaluating with the tool kit, they gained the following results:
+
+\begin{itemize}
+    \item The length of programs has a significant negative impact on the performance of automated code generation and all the evaluated approaches show significant reduction in performance when applied on the new dataset.
+    \item Compared with other approaches, AST-based code generation approaches have a great chance to generate syntactically correct Python programs. However, only a few programs are executable because of various runtime exceptions.
+    \item To generate an excutable program, manual interference (especially code revision and validation) is indispensable.
+    \item Modifying the generated programs is not significantly easier than creating programs from scratch.
+    \item A simple \emph{popular-based approach} might outperform the state-of-the-art deep learning-based approaches concerning the common performance metrics bilingual evaluation understudy. 
+\end{itemize}
+
+\subsection{Why it is interesting}
+\begin{enumerate}
+    \item In contrast to the optimism that others have consistently expressed about machine learning, the authors offer a unique challenge: \emph{Are we there yet}? Instead, he looked for simpler solutions and got the best results. This made me think, is the application of AI technology necessarily better? Would there be a simpler and more efficient way to solve it?
+    \item The author find that modification of given program is not easier than writing it from scratch.
+\end{enumerate}
+
+% Article Two
+\section{Recommending Software Features for Mobile Applications Based on User Interface Comparison\cite{chen2019recommending}}
+
+\subsection{Summary}
+Requirement elicitation is always a significant part of software development, and the emergence of app stores provide a new platform for developers to gather requirements and perform market-wide analysis. Instead of doing interviews, observation or workshops, nowadays, software developers are able to dig potential user requirements from user review or API information in source code. However, those data do not include direct description of the implemented features, and the efficiency s constrained by multiple external conditions. Therefore,  a new and efficient demand mining technology is urgently needed.
+
+A data-driven approach for recommending software features of mobile applications based on user interface comparison has been brought about. Using text similarity to measure the similarity of the appointed UI and app UIs, this approach can efficiently recommends related features which can be considered for inclusion in forthcoming release by following the steps below:
+
+\begin{enumerate}
+    \item \emph{UI Similarity Calculation: }  Do words splitting by using Ansj for Chinese sentences, and a regular expression for English ones, and Tongyici Cilin, WordNet::Similarity to compute text similarity respectively. Apply the genetic algorithm (GA) to calculate the similarity of UIs.
+    \item \emph{Feature Identification: } Using visible texture of components as features. 
+    \item \emph{Sort and Recommend: } Classify features and rank the cluster in descending order of feature number it has.
+\end{enumerate}
+
+Leave-on-cut validation shows that: the proposed method is meaningful and effective for recommending popular features.
+
+\subsection{Why it is interesting}
+\begin{enumerate}
+    \item Focused on new demand gathering platforms - app stores and new requirement sources - trends in competing products, which ensures the necessity and feasibility of requirements and reduces sunk costs.
+    \item A new way of comparison is proposed - UI-based comparison.
+    \item Use text-based analysis instead of image-based analysis.
+\end{enumerate}
+
+% Article Three
+\section{Does Sentiment Help Requirement Engineering: Exploring Sentiments in User Comments to Discover Informative Comments\cite{jeong2021does}}
+
+\subsection{Summary}
+User feedback is a typical way of expressing the opinions of the user, and is a valuable source for analysis.  As the communication channel between developers and users, app stores process a large amount of information on user needs to be discovered. And the rise of NLP has significantly reduced the cost of analysis, but the limitation of its own algorithm to avoid a large number of meaningless comments has led to inefficiencies. 
+
+It have been reported that, \emph{negative} comments are more  useful compared to others while neutral sentiments have not yet been analyzed in more detail. To address these problems, a representative opinion-mining technique is needed. After excluding useless data, they are able to execute sentiment analysis via SentiStrength and dividing them into 4 types: \emph{Weak Positive}, \emph{Strong Positive}, \emph{Weak Negative}, \emph{Strong Negative}. Then, the y use the Latent Dirichlet Allocation to measure the informativeness of the comments. At last, they measured sentiment and informative score of topics and do the evaluation. 
+
+The results are as follows:
+
+\emph{Negative} and \emph{StrongEmotional} could be expected to have high informativeness. Since comments that simply express \emph{negative} or \emph{Strong emotional} sentiments are quite uncommon, informative comments are densely collected in very few datasets, which means filtering out informative comments using sentiments has the potential for effective results.
+
+\subsection{Why it is interesting}
+\begin{enumerate}
+    \item The research significantly reduces the pressure on operations and maintenance teams to scroll through meaningless user comments to uncover user requirements.
+    \item It enables more effective filtering and analysis of user comments by classifying the positivity or negativity of user sentiments and the intensity of emotions.
+\end{enumerate}
+
+% References
+\printbibliography{} 
+
+\end{document}
