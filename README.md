@@ -38,3 +38,9 @@ intro：https://www.bilibili.com/video/BV1kG4y1J7BY
 框架：https://github.com/ZJU-SEC/os22fall-stu
 
 OE-Heart老师：[操作系统实验 | OE.Heart's Blog ](https://oe-heart.github.io/categories/课程笔记/操作系统实验/)
+
+## B/S体系软件设计
+
+22-23秋冬 胡晓军
+
+今年的选题是“智能家居管理系统”，来不及就...随手乱糊了（指没来得及学Vue，拿着JQuery瞎折腾）
