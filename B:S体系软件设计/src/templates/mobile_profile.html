@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能家居管理系统</title>
+    <link rel="stylesheet" type="text/css" href="css/mobile_profile.css">
+</head>
+<body>
+     <!-- 顶栏 -->
+     <div class="header">
+        <ion-icon class="icon" name="storefront"></ion-icon>
+        <h1>iHome</h1>
+        <div class="user"><span>{{g.name}}</span>&nbsp,&nbsp&nbsp<span id="exit" style="color: #dfdfdf;">登出</span></div>
+    </div>
+    <!-- 底栏 -->
+    <div class="footer">
+        <ion-icon id="prev" class="select prev" name="caret-back"></ion-icon>
+        <h1>当前场景</h1>
+        <div class="cur_scene">{{g.aname}}</div>
+        <ion-icon id="next" class="select next" name="caret-forward"></ion-icon>
+    </div>
+    <!-- 设备列表 -->
+    <div class="d_list">
+        <!-- <div class="d">
+            <div class="up">
+                <ion-icon name="bulb-outline"></ion-icon>
+                <h1>light 1</h1>
+            </div>
+            <div class="down">
+                <h2>状态</h2>
+                <div class="status">ON</div>
+                <h2>亮度</h2>
+                <div class="lightness">20</div>
+                <div>(%)</div>
+            </div>
+        </div> -->
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script>
+    // logout
+    $("#exit").click(function(){
+        $.ajax({
+            url: "http://127.0.0.1:8080/user/logout",
+            dataType: "json",
+            type: "post",
+            async: "true",
+            data: {},
+            success: function(res) {
+                if(res.status == 200) {
+                    window.location = "http://127.0.0.1:8080/mobile";
+                }
+            }
+        })
+    })
+    // scene switch
+    $("#prev").click(function() {
+        $.ajax({
+            url: "http://127.0.0.1:8080/area/prev",
+            dataType: "json",
+            type: "post",
+            async: "true",
+            data: {},
+            success: function(res) {
+                window.location = "http://127.0.0.1:8080/mobile_profile";
+            }
+        })
+    })
+    $("#next").click(function() {
+        $.ajax({
+            url: "http://127.0.0.1:8080/area/next",
+            dataType: "json",
+            type: "post",
+            async: "true",
+            data: {},
+            success: function(res) {
+                window.location = "http://127.0.0.1:8080/mobile_profile";
+            }
+        })
+    })
+    // load device
+    $(document).ready(function() {
+        $.ajax({
+            url: "http://127.0.0.1:8080/room",
+            dataType: "json",
+            type: "post",
+            async: "true",
+            data: {},
+            success: function(res) {
+                var arr = res.data;
+                $.each(arr, function(i, v) {
+                    $.each(v.list, function(i,v){
+                        var html =  "<div class=\"d\"><div class=\"up\">"
+                            console.log(v.type)
+                        switch(v.type){
+                            case 1:
+                                html += "<ion-icon name=\"bulb-outline\"></ion-icon>" +
+                                        "<h1>" + v.name + "</h1></div>" + "<div class=\"down\">" +
+                                        "<h2>状态</h2>" + "<div class=\"status\">";
+                                if(v.status == 1) html += "ON";
+                                else html += "OFF";
+                                html += "</div><h2>亮度</h2><div class=\"lightness\">"+v.info+"</div><div>(%)</div></div></div>";
+                                break;
+                            case 2:
+                                html += "<ion-icon name=\"radio-outline\"></ion-icon>" +
+                                        "<h1>" + v.name + "</h1></div>" + "<div class=\"down\">" +
+                                        "<h2>状态</h2>" + "<div class=\"status\">";
+                                if(v.status == 1) html += "ON";
+                                else html += "OFF";
+                                html += "</div><h2>上报信息</h2><div class=\"lightness\">"+v.info+"</div></div></div>";
+                                break;
+                            case 3:
+                                html += "<ion-icon name=\"toggle-outline\"></ion-icon>" +
+                                        "<h1>" + v.name + "</h1></div>" + "<div class=\"down\">" +
+                                        "<h2>状态</h2>" + "<div class=\"status\">";
+                                if(v.status == 1) html += "ON";
+                                else html += "OFF";
+                                html += "</div></div>";
+                                break;
+                            case 4:
+                                html += "<ion-icon name=\"lock-closed-outline\"></ion-icon>" +
+                                        "<h1>" + v.name + "</h1></div>" + "<div class=\"down\">" +
+                                        "<h2>状态</h2>" + "<div class=\"status\">";
+                                if(v.status == 1) html += "ON";
+                                else html += "OFF";
+                                html += "</div></div>";
+                                break;
+                        }
+                        $(".d_list").append(html);
+                    })
+                })
+            }
+        })
+    })
+</script>
+</html>

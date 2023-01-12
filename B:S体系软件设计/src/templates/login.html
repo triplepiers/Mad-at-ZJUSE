@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能家居管理系统</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+<body>
+    <!-- 顶栏 -->
+    <div class="header">
+        <ion-icon class="icon" name="storefront"></ion-icon>
+        <h1>iHome</h1>
+        <p>智能家居管理系统</p>
+    </div>
+
+    <!-- 标题 -->
+    <div class="title">
+        <div class="sub">一站式设备管理平台</div>
+        <div class="main">智能家居管理系统</div>
+    </div>
+
+    <!-- 按钮 -->
+    <div class="start">
+        START
+        <i></i>
+    </div>
+
+    <!-- 卡片 -->
+    <div class="card">
+        <form class="signup" action="http://localhost:8080/user/login" method="post">
+            <input class="name" type="text"      name="username" placeholder="Username"     required="required" maxlength=20>
+            <input id="phone"   type="text"      name="phone"    placeholder="Phone Number" required="required" oninput="if(value.length>5)value=value.slice(0,11)" onkeyup="value=value.replace(/[^\d]/g,'')" maxlength=11>
+            <input class="pwd"  type="password"  name="password" placeholder="Password"     required="required" maxlength=20>
+            <div id="signup" class="btn">Sign Up</div>
+            <div class="alert left">&nbsp</div>
+        </form>
+        <div class="tag left">Log In ></div>
+        <form class="login" action="http://localhost:8080/user/login" method="post">
+            <input class="name"  type="text"      name="username" placeholder="Username" required="required" maxlength=20>
+            <input class="pwd"   type="password"  name="password" placeholder="Password" required="required" maxlength=20>
+            <div id="login"  class="btn">Log In</div>
+            <div class="alert right">&nbsp</div>
+        </form>
+        <div class="tag right">< Sign Up</div>
+        <div class="blur"></div>
+    </div>
+</body>
+<script type="text/javascript" src="js/login.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</html>

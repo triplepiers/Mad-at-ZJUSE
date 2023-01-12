@@ -1,0 +1,493 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
+
+    --fcolor: #dfdfdf;
+    --bcolor: rgba(0, 0, 0, .75);
+    --shadow: rgba(0, 0, 0, .9);
+    --blue: #3478F3;
+}
+
+/* 主要背景配色 */
+body {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, 
+    #aa8fd8, #9a9ae1, #8aa7ec, 
+    #79b3f4, #69bff8, #52cffe,
+    #41dfff, #46eefa, #5ffbf1);
+}
+
+/* 顶栏部分样式 */
+.header {
+    z-index: 5;
+    position: relative;
+
+    width: 100%;
+    height: 50px;
+
+    background-color: var(--bcolor);
+    box-shadow: 0 0 15px var(--shadow);
+
+    color: var(--fcolor);
+}
+
+.header .icon {
+    position: absolute;
+    top: 12px;
+    left: 15px; 
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 5px;
+    overflow: hidden;
+
+    color: var(--fcolor);
+}
+
+.header h1 {
+    position: absolute;
+    left: 60px;
+    top: 1px;
+
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.header p {
+    position: absolute;
+    left: 195px;
+    bottom: 8px;
+}
+
+/* 用户提示信息 */
+.header .user {
+    position: absolute;
+    right: 20px;
+    bottom: 12px;
+}
+
+.header .user span {
+    color: var(--blue);
+    text-decoration: underline;
+}
+
+/* 标题 */
+.title {
+    /* background-color: #bfa; */
+    overflow: auto; /* 防止高度塌陷 */
+    padding: 0 3vmin;
+    padding-top: 3vh;
+}
+
+.title h1 {
+    float: left;
+    color: var(--bcolor);
+    font-size: 35px;
+    font-weight: 700;
+}
+
+/* 场景选择 */
+.title .scene {
+    /* position: relative; */
+    margin-left: 15vmin;
+    float: left;
+    display: flex;
+    justify-content: baseline;
+}
+
+.title .scene h1 {
+    position: relative;
+    display: block;
+}
+
+.title .scene h1::after{
+    content: '';
+    position: absolute;
+    top: 6px;
+    right: -10px;
+
+    display: block;
+    width: 2px;
+    height: 40px;
+
+    background-color: var(--bcolor);
+}
+
+.title .scene .cur_scene {
+    margin-left: 20px;
+    color: var(--blue);
+    font-size: 35px;
+    font-weight: 700;
+}
+
+
+/* arrow */
+.title .scene .select {
+    position: relative;
+    top: 8px;
+    left: 5px;
+
+    color: var(--bcolor);
+    font-size: 20px;
+
+    transform: rotate(0deg);
+}
+
+.title .scene .select.next {
+    top: 26px;
+    left: -15px;
+}
+
+
+/* 场景按钮 */
+.title .btns {
+    float: right;
+}
+
+/* 透明按钮 */
+.trans {
+    border: 2px solid var(--blue);
+    color: var(--blue);
+}
+
+/* 蓝色按钮 */
+.blue {
+    border: 2px solid var(--blue);
+    background-color: var(--blue);
+    color: white;
+}
+
+
+.title .btns .trans,
+.title .btns .blue {
+    float: right;
+    margin-top: 5px;
+    margin-left: 15px;
+    padding: 4px 35px;
+    border-radius: 8px;
+
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.title .btns .trans {
+    padding-left: 28px;
+    padding-right: 30px;
+}
+
+.bottom {
+    width: 100%;
+    position: relative;
+}
+
+/* 左侧栏 */
+.list {
+    position: relative;
+    width: 28vmin;
+
+    margin-left: 2vmin;
+    margin-top: 1vmin;
+    padding: 10px 10px;
+
+    border-radius: 1vmin;
+
+    background-color: rgba(255,255,255,.1);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 15px rgba(0,0,0, .1);
+}
+
+.list .blue {
+    width: 100%;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+
+    font-size: 15px;
+    font-weight: 400;
+}
+
+/* 房间标签 */
+.list .room {
+    position: relative;
+    width: 100%;
+    border-radius: 5px;
+
+    padding: 4px 10px;
+
+    background-color: rgba(255,255,255,.1);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 40px rgba(0,0,0,.1);
+    border-right: 1px solid rgba(255,255,255,.1);
+
+    color: var(--bcolor);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.list .room .arrow {
+    position: absolute;
+    right: 4px;
+    top: 5px;
+
+    color: var(--bcolor);
+    font-size: 20px;
+
+    transform: rotate(0deg);
+    transition: .3s;
+}
+
+.list .room .arrow.active {
+    transform: rotate(-90deg);
+}
+
+/* 房间列表的show/hide */
+.d_list {
+    overflow: hidden;
+}
+
+.d_list.hide {
+    height: 0;
+}
+/* 灯 */
+.d_list .d {
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0, .2);
+    padding: 5px 10px;
+}
+
+.d_list .d ion-icon {
+    display: inline-block;
+    color: var(--blue);
+    width: 20px;
+    height: 20px;
+}
+
+.d_list .d h2 {
+    display: inline-block;
+    position: relative;
+    top: -5px;
+    left: 8px;
+
+    color: black;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.d_list .d .disc {
+    margin-left: 23px;
+    color: var(--blue);
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.d_list .d .info {
+    margin-left: 23px;
+    margin-top: 2px;
+    color: var(--bcolor);
+    font-size: 10px;
+    font-weight: 500;
+    word-break: break-all;
+}
+
+/* 开关 */
+.d_list .d .turn {
+    float: right;
+    width: 43px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: var(--bcolor);
+    transition: .3s;
+}
+
+.d_list .d .turn .cir {
+    position: relative;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+
+    border-radius: 8px;
+    background-color: white;
+    transition: .3s;
+}
+
+/* ON */
+.d_list .d .turn.on {
+    background-color: var(--blue);
+}
+.d_list .d .turn.on .cir {
+    left: 24px;
+}
+
+/* 文本框 */
+input {
+    position: absolute;
+    top: 29px;
+    left: 83px;
+    display: inline-block;
+    width: 25px;
+    height: 20px;
+
+    color: var(--blue);
+    font-size: 10px;
+    font-weight: 500;
+    text-align: center;
+
+    border-color: transparent;
+    border-bottom: 1px solid var(--blue);
+    background-color: transparent;
+     
+    outline: none;
+}
+
+/* 画板 */
+.paint {
+    position: absolute;
+    top: 0;
+    left: 35vmin;
+
+    width: 75vw;
+    height: 50vw;
+    border-radius: 1vmin;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .2);
+
+    overflow: hidden;
+}
+.paint img {
+    position: absolute;
+    height: 100%;
+}
+
+.paint ion-icon {
+    position: absolute;
+    color: var(--blue);
+    font-size: 20px;
+}
+
+/* 增加设备按钮 */
+#new_device {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+
+    width: 50px;
+    height: 50px;
+
+    color: var(--blue);
+}
+
+/* 弹窗 */
+.msg {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 400px;
+    border-radius: 4px;
+
+    padding: 15px 30px;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .2);
+    transition: .3ss;
+}
+
+.msg h1 {
+    color: var(--blue);
+    font-size: 30px;
+    font-weight: 800;
+    border-bottom: 1px solid var(--blue);
+}
+
+.msg .close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: var(--bcolor);
+    width: 30px;
+    height: 30px;
+}
+
+.msg .close:hover {
+    color: var(--blue);
+}
+
+.msg div {
+    position: relative;
+    margin: 0 15px;
+    margin-top: 5px;
+}
+
+.msg span {
+    color: var(--blue);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.msg input {
+    color: var(--bcolor);
+    position: absolute;
+    left: 60px;
+    top: 2px;
+    width: 85%;
+}
+
+.msg .upload {
+    position: absolute;
+    top: 0;
+    width: 85%;
+    height: 30px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.msg .ok {
+    margin-top: 12px;
+    position: relative;
+    left: 220px;
+    text-align: center;
+    width: 30%;
+    border-radius: 3px;
+}
+
+.msg.f_add_d .d_type {
+    position: absolute;
+    top: -2px;
+    left: 45px;
+    padding: 0;
+    display: flex;
+}
+
+.msg.f_add_d .d_type .btn {
+    width: 70px;
+    margin: 0;
+    font-size: 10px;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 3px;
+    margin-left: 5px;
+}
+
+.msg.f_add_d .d_type .btn:nth-of-type(1),
+.msg.f_add_d .d_type .btn:nth-of-type(2) {
+    width: 50px;
+}
+
+.hide {
+    visibility: hidden;
+}

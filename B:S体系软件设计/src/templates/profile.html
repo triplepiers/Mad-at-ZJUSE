@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能家居管理系统</title>
+    <link rel="stylesheet" type="text/css" href="css/profile.css">
+</head>
+<body>
+    <!-- 顶栏 -->
+    <div class="header">
+        <ion-icon class="icon" name="storefront"></ion-icon>
+        <h1>iHome</h1>
+        <p>智能家居管理系统</p>
+        <div class="user">欢迎，<span>{{g.name}}</span>&nbsp！&nbsp<span id="exit" style="color: #dfdfdf;">登出</span></div>
+    </div>
+
+    <!-- 标题 -->
+    <div class="title">
+        <h1>设备一览</h1>
+        <div class="scene">
+            <h1>当前场景</h1>
+            <div class="cur_scene">{{g.aname}}</div>
+            <ion-icon id="prev" class="select prev" name="caret-up-outline"></ion-icon>
+            <ion-icon id="next" class="select next" name="caret-down-outline"></ion-icon>
+        </div>
+        <div class="btns">
+            <div id="save"      class="blue">保存位置</div>
+            <div id="new_scene" class="trans">+ 新建场景</div>
+        </div>
+    </div>
+
+    <div class="bottom">
+        <!-- 设备列表 -->
+        <div class="list">
+        </div>
+
+        <!-- 画板 -->
+        <div class="paint">
+            <img class="bg" src="{{url_for('static', filename=g.path)}}">
+            <!-- 增加设备按钮 -->
+            <ion-icon id="new_device" name="add-circle-outline"></ion-icon>
+        </div>
+    </div>
+
+    <!-- 新建场景 -->
+    <div class="msg f_add_s hide">
+        <h1>Add Scene</h1>
+        <ion-icon class="close" name="close-outline"></ion-icon>
+        <div>
+            <span>场景名</span>
+            <input id="neo_a_name" type="text" placeholder="请输入新场景名">
+        </div>
+        <div>
+            <span>户型图</span>
+            <input id="upload" type="file" placeholder="请上传户型图">
+        </div>
+        <div id="btn_add_a" class="ok blue">确定</div>
+    </div>
+    <!-- 新建房间 -->
+    <div class="msg f_add_r hide">
+        <h1>Add Room</h1>
+        <ion-icon class="close" name="close-outline"></ion-icon>
+        <div>
+            <span>房间名</span>
+            <input type="text" placeholder="请输入新房间名">
+        </div>
+        <div class="ok blue">确定</div>
+    </div>
+    <!-- 新建设备 -->
+    <div class="msg f_add_d hide">
+        <h1>Add Device</h1>
+        <ion-icon class="close" name="close-outline"></ion-icon>
+        <div>
+            <span>设备名</span>
+            <input id="add_d_name" type="text" placeholder="请输入新设备名">
+        </div>
+        <div>
+            <span>类&nbsp&nbsp&nbsp&nbsp型</span>
+            <div class="d_type">
+                <div id="add_1" class="btn blue">灯</div>
+                <div id="add_2" class="btn trans">锁</div>
+                <div id="add_3" class="btn trans">开关</div>
+                <div id="add_4" class="btn trans">传感器</div>
+            </div>
+        </div>
+        <div>
+            <span>房间名</span>
+            <input id="add_r_name" type="text" placeholder="请输入所属房间名">
+        </div>
+        <div id="s_add_d" class="ok blue">确定</div>
+    </div>
+</body>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="js/profile.js"></script>
+</html>

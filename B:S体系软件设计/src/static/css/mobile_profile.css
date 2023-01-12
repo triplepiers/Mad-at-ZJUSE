@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
+
+    --fcolor: #dfdfdf;
+    --bcolor: rgba(0, 0, 0, .75);
+    --shadow: rgba(0, 0, 0, .9);
+    --blue: #3478F3;
+}
+
+/* 主要背景配色 */
+body {
+    position: relative;
+
+    width: 100vw;
+    min-height: 100vh;
+    background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, 
+    #aa8fd8, #9a9ae1, #8aa7ec, 
+    #79b3f4, #69bff8, #52cffe,
+    #41dfff, #46eefa, #5ffbf1);
+}
+
+/* 顶栏部分样式 */
+.header {
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 130px;
+
+    background-color: var(--bcolor);
+    box-shadow: 0 0 15px var(--shadow);
+
+    color: var(--fcolor);
+}
+
+.header .icon {
+    position: absolute;
+    top: 20px;
+    left: 30px; 
+
+    width: 80px;
+    height: 80px;
+
+    border-radius: 5px;
+    overflow: hidden;
+
+    color: var(--fcolor);
+}
+
+.header h1 {
+    position: absolute;
+    left: 140px;
+    top: 15px;
+
+    font-size: 70px;
+    font-weight: 700;
+}
+
+/* 用户提示信息 */
+.header .user {
+    position: absolute;
+    right: 20px;
+    bottom: 25px;
+    font-size: 40px;
+}
+
+.header .user span {
+    color: var(--blue);
+    text-decoration: underline;
+}
+
+.footer {
+    z-index: 5;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 180px;
+
+    background-color: var(--fcolor);
+    box-shadow: 0 0 15px var(--shadow);
+
+    color: var(--bcolor);
+}
+.footer h1 {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+}
+.footer ion-icon {
+    font-size: 100px;
+    position: absolute;
+    top: 55px;
+}
+.footer .cur_scene {
+    position: absolute;
+    top: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 80px;
+    font-weight: 500;
+    color: var(--blue);
+}
+#prev {
+    left: 20px;
+}
+#next {
+    right: 20px;
+}
+
+.d_list {
+    width: 100%;
+    /* background-color: brown; */
+}
+
+.d_list .d {
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: 50px auto;
+    width: 600px;
+    height: 600px;
+    border-radius: 60px;
+    background-color: rgba(255,255,255,.3);
+    box-shadow: 0 20px 40px rgba(0,0,0,.1);
+    border-right: 1px solid rgba(255,255,255,.1);
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    backdrop-filter: blur(20px);
+}
+
+.d_list .d:first-of-type {
+    margin-top: 200px;
+}
+.d .up {
+    position: relative;
+    height: 150px;
+    margin: 30px;
+    border-bottom: 2px solid var(--bcolor);
+}
+.d .up ion-icon {
+    position: relative;
+    top: 37px;
+    font-size: 100px;
+}
+.d .up h1 {
+    position: absolute;
+    right: 10px;
+    bottom: -30px;
+    font-size: 80px;
+    font-weight: 700;
+}
+
+.d .down {
+    position: relative;
+    font-size: 50px;
+}
+
+.d .down h2 {
+    position: relative;
+    left: 150px;
+    font-size: 50px;
+    color: var(--blue);
+    margin-top: 80px;
+}
+
+.d .down div {
+    position: absolute;
+    top: 160px;
+    left: 430px;
+}
+
+.d .down .status {
+    top: 0;
+    left: 350px;
+    
+}
+
+.d .down .lightness {
+    top: 160px;
+    left: 350px;
+    text-decoration: underline;
+}

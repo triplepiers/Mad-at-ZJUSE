@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能家居管理系统</title>
+    <link rel="stylesheet" type="text/css" href="css/mobile_login.css">
+</head>
+<body>
+     <!-- 顶栏 -->
+     <div class="header">
+        <ion-icon class="icon" name="storefront"></ion-icon>
+        <h1>iHome</h1>
+    </div>
+
+    <!-- 标题 -->
+    <div class="title">
+        <div class="sub">一站式设备管理平台</div>
+        <div class="main">智能家居管理系统</div>
+    </div>
+
+    <!-- 按钮 -->
+    <div class="start">
+        START
+        <i></i>
+    </div>
+    <!-- login -->
+    <form class="signup" action="http://localhost:8080/user/login" method="post">
+        
+        <input class="name" type="text"      name="username" placeholder="Username"     required="required" maxlength=20>
+        <input id="phone"   type="text"      name="phone"    placeholder="Phone Number" required="required" oninput="if(value.length>5)value=value.slice(0,11)" onkeyup="value=value.replace(/[^\d]/g,'')" maxlength=11>
+        <input class="pwd"  type="password"  name="password" placeholder="Password"     required="required" maxlength=20>
+        <div id="signup" class="btn">Sign Up</div>
+        <div class="alert left">&nbsp</div>
+    </form>
+    <div class="tag left">Log In ></div>
+
+    <form class="login hide" action="http://localhost:8080/user/login" method="post">
+        <input class="name"  type="text"      name="username" placeholder="Username" required="required" maxlength=20>
+        <input class="pwd"   type="password"  name="password" placeholder="Password" required="required" maxlength=20>
+        <div id="login"  class="btn">Log In</div>
+        <div class="alert right">&nbsp</div>
+    </form>
+    <div class="tag hide right">< Sign Up</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script>
+    $(".tag.left").click(function(){
+        document.querySelector(".tag.left").classList.add("hide")
+        document.querySelector("form.signup").classList.add("hide")
+        document.querySelector(".tag.right").classList.remove("hide")
+        document.querySelector("form.login").classList.remove("hide")
+    })
+    $(".tag.right").click(function(){
+        document.querySelector(".tag.right"). classList.add("hide")
+        document.querySelector("form.login").classList.add("hide")
+        document.querySelector(".tag.left").classList.remove("hide")
+        document.querySelector("form.signup").classList.remove("hide")
+    })
+    $("#signup").click(function() {
+        let name = document.querySelector('.signup .name').value
+        let phone = document.querySelector("#phone").value
+        let pwd = document.querySelector('.signup .pwd').value
+        if(name.length<6 || phone.length != 11 || pwd.length<6) return
+        $.ajax({
+            url: "http://127.0.0.1:8080/user/signup",
+            dataType: "json",
+            type: "post",
+            async: "true",
+            data: {
+                username: name,
+                phone: phone,
+                password: pwd
+            },
+            success: function(res) {
+                if (res['status'] == 200) {
+                    window.location = "http://127.0.0.1:8080/mobile_profile";
+                } else if (res['status'] == 501) {
+                    document.querySelector('.alert.left').innerHTML = "用户名已存在";
+                } else if (res['status'] == 502) {
+                    document.querySelector('.alert.left').innerHTML = "手机号已存在";
+                }
+            }
+        })
+    })
+    $("#login").click(function() {
+        let name = document.querySelector('.login .name').value
+        let pwd = document.querySelector('.login .pwd').value
+        if(name.length==0 || pwd.length==0) return;
+        $.ajax({
+            url: "http://127.0.0.1:8080/user/login",
+            dataType: "json",
+            type: "post",
+            async: "true",
+            data: {
+                username: name,
+                password: pwd
+            },
+            success: function(res) {
+                if (res['status'] == 200) {
+                    window.location = "http://127.0.0.1:8080/mobile_profile";
+                } else if (res['status'] == 503) {
+                    document.querySelector('.alert.right').innerHTML = "用户不存在";
+                } else if (res['status'] == 504) {
+                    document.querySelector('.alert.right').innerHTML = "密码错误";
+                }
+            }
+        })
+    })
+</script>
+</html>
