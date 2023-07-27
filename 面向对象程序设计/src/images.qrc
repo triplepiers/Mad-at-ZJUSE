@@ -1,0 +1,44 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/main.ico</file>
+        <file>images/main_background.jpg</file>
+        <file>images/Title.png</file>
+        <file>images/l_name.png</file>
+        <file>images/std_hover.png</file>
+        <file>images/std_ini.png</file>
+        <file>images/21_hover.png</file>
+        <file>images/21_ini.png</file>
+        <file>images/tx_hover.png</file>
+        <file>images/tx_ini.png</file>
+        <file>images/common_background.png</file>
+        <file>images/local_hover.png</file>
+        <file>images/local_ini.png</file>
+        <file>images/online_hover.png</file>
+        <file>images/online_ini.png</file>
+        <file>images/404.png</file>
+        <file>images/player/four_hover.png</file>
+        <file>images/player/four_ini.png</file>
+        <file>images/player/one_hover.png</file>
+        <file>images/player/one_ini.png</file>
+        <file>images/player/three_hover.png</file>
+        <file>images/player/three_ini.png</file>
+        <file>images/player/two_hover.png</file>
+        <file>images/player/two_ini.png</file>
+        <file>images/card/card_back.png</file>
+        <file>images/card/desk.png</file>
+        <file>images/card/ic_help_hover.png</file>
+        <file>images/card/ic_help_ini.png</file>
+        <file>images/card/ic_set_hover.png</file>
+        <file>images/card/ic_set_ini.png</file>
+        <file>images/card/user_card.png</file>
+        <file>images/card/bk_card.png</file>
+        <file>images/card/pass.png</file>
+        <file>images/card/user_fail.png</file>
+        <file>images/card/fin.png</file>
+        <file>images/card/0.png</file>
+        <file>images/card/1.png</file>
+        <file>images/card/2.png</file>
+        <file>images/card/3.png</file>
+        <file>images/card/card_front.png</file>
+    </qresource>
+</RCC>
