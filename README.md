@@ -11,8 +11,6 @@
 
 文档只有群文件里的分散部分，懒得拼接了
 
-intro：https://www.bilibili.com/video/BV1s84y1s798
-
 前端项目：https://github.com/Pikachu-Yuhang/SEM
 
 后端项目：https://gitee.com/buboscandiaca/sem-back-end
@@ -20,8 +18,6 @@ intro：https://www.bilibili.com/video/BV1s84y1s798
 ## 软件需求工程
 
 22-23秋冬  万志远/刘玉生  开源项目分析平台2.0
-
-intro：https://www.bilibili.com/video/BV1kG4y1J7BY
 
 项目：https://github.com/BevisChou/Open-Source-Analysis-Platform
 
@@ -41,6 +37,12 @@ OE-Heart老师：[操作系统实验 | OE.Heart's Blog ](https://oe-heart.github
 
 ## B/S体系软件设计
 
-22-23秋冬 胡晓军
+22-23秋冬 胡晓军 智能家居管理系统
 
-今年的选题是“智能家居管理系统”，来不及就...随手乱糊了（指没来得及学Vue，拿着JQuery瞎折腾）
+有点来不及就随手乱糊了（无自适应的 JQuery 产物）
+
+## 大规模信息系统构建技术导论
+
+22-23春夏 鲁伟明 分布式数据库
+
+基于Zookeeper (能动但不多，评价是验收被爆杀)
