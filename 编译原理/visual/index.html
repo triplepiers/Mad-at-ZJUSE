@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AST可视化结果</title>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+    <script type="module">
+        // 数据获取
+        import D from "./data.js";
+        const {data} = D;
+        
+        // 配置项
+        const option = {
+            series: [
+                {
+                type: 'tree',
+                data: [data],
+                symbol: 'emptyCircle',
+                orient: 'vertical',
+                expandAndCollapse: true,
+                initialTreeDepth: -1,
+                label: {
+                    position: 'top',
+                    verticalAlign: 'middle',
+                    align: 'middle',
+                    fontSize: 9
+                },
+                leaves: {
+                    label: {
+                    position: 'bottom',
+                    verticalAlign: 'middle',
+                    align: 'middle'
+                    }
+                },
+                animationDurationUpdate: 750
+                }
+            ]
+        };
+
+        var chart = echarts.init(document.getElementById("container"));
+        chart.setOption(option);
+
+        // 高度自适应
+        const nodes = chart._chartsViews[0]._data._graphicEls;
+        var countNode = 0;
+        for(let idx = 0 ; idx < nodes.length; idx++) {
+            const node = nodes[idx];
+            if(node == undefined) continue;
+            countNode++;
+        }
+        var curHeight = 15 * countNode;
+        curHeight = Math.max(window.innerHeight, curHeight);
+        
+        var curWidth = 60 * countNode;
+        curWidth = Math.max(window.innerWidth, curWidth);
+
+        const tree = document.getElementById("container");
+        tree.style.height = curHeight + 'px';
+        tree.style.width = curWidth + 'px';
+        chart.resize();
+    </script>
+</body>
+</html>

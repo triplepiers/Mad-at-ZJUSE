@@ -47,6 +47,12 @@ OE-Heart老师：[操作系统实验 | OE.Heart's Blog ](https://oe-heart.github
 
 基于Zookeeper (能动但不多，评价是验收被爆杀)
 
+## 编译原理
+
+22-23春夏 王强 C--编译器
+
+验收的学姐很 Nice，期末考题量很大，总之寄！
+
 ## 数据挖掘导论
 
 22-23夏 李石坚

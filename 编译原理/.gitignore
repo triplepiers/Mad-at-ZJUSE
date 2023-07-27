@@ -1,0 +1,12 @@
+.*/*
+
+build/*
+
+test/*
+!test/Makefile
+
+visual/data.js
+
+src/parse.cpp
+src/parse.hpp
+src/lex.yy.cpp
