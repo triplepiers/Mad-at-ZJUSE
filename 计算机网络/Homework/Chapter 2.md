@@ -1,8 +1,4 @@
- # Homework of Chap. 2 - 3
-
-> 姓名：沈韵沨
->
-> 学号：3200104392
+# Homework of Chap. 2 - 3
 
 ## Chapter 2
 
