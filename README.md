@@ -14,7 +14,7 @@
 
   - [小角龙](https://zhang-each.github.io/My-CS-Notebook/)：从专业分流到保送毕业
  
-  - （待补充）
+  - [Pacman](https://github.com/IsshikiHugh/zju-cs-asio) 老师提供的指针集合：您可以从这里跳转到几乎所有可以参考的 repo
 
 ## 大二
 
